@@ -17,6 +17,7 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getDataFromAPi()
+        self.title = "NY Times Most Popular"
         // Do any additional setup after loading the view.
     }
     
@@ -47,6 +48,7 @@ extension ListViewController :UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let controlller =  UIStoryboard.loadViewController(storyBoardName:"Main", identifierVC:"DetailViewController", type:DetailViewController.self)
+        self.navigationController?.pushViewController(controlller, animated:true)
     }
 }

@@ -14,11 +14,11 @@
             <objects>
                 <viewController storyboardIdentifier="ListViewController" id="BYZ-38-t0r" customClass="ListViewController" customModule="Assessment_IOS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nQK-Gs-KBv">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ListViewTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListViewTableViewCell" rowHeight="135" id="XmN-Rf-KUb" customClass="ListViewTableViewCell" customModule="Assessment_IOS_App" customModuleProvider="target">
@@ -105,6 +105,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLbl" destination="lty-De-Npj" id="pdQ-6c-yxR"/>
+                                            <outlet property="listImageView" destination="YuE-dy-EmA" id="fq0-Gz-Qsy"/>
                                             <outlet property="sourceLbl" destination="zbh-o3-wqh" id="Xg7-8f-IPO"/>
                                             <outlet property="titleLbl" destination="Zxz-TL-6Ju" id="dHP-WU-x80"/>
                                             <outlet property="typeLbl" destination="Cq7-PI-MAV" id="GY9-SF-zId"/>
@@ -135,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="-346.39999999999998" y="62.518740629685162"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="Wec-x7-19q">
             <objects>
-                <viewController id="PTq-9s-h8I" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="PTq-9s-h8I" customClass="DetailViewController" customModule="Assessment_IOS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NZg-5w-Ems">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,9 +155,15 @@
         <scene sceneID="h6a-a6-XAM">
             <objects>
                 <navigationController id="Lzj-Fl-7eI" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cAD-I8-fmk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="cAD-I8-fmk">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.27460527420043945" green="0.87812298536300659" blue="0.74409621953964233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.27749669551849365" green="0.89383983612060547" blue="0.75986737012863159" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="70u-HH-74y"/>
