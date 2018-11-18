@@ -18,6 +18,7 @@
 		04FB745D21A1512E0031DD07 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB745C21A1512E0031DD07 /* ApiManager.swift */; };
 		04FB745F21A151840031DD07 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB745E21A151840031DD07 /* DataModel.swift */; };
 		04FB746121A16CAD0031DD07 /* ListViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB746021A16CAD0031DD07 /* ListViewTableViewCell.swift */; };
+		04FB746421A17BEF0031DD07 /* SwiftProgressLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB746321A17BEF0031DD07 /* SwiftProgressLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		04FB745C21A1512E0031DD07 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		04FB745E21A151840031DD07 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		04FB746021A16CAD0031DD07 /* ListViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTableViewCell.swift; sourceTree = "<group>"; };
+		04FB746321A17BEF0031DD07 /* SwiftProgressLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftProgressLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		04FB745921A150210031DD07 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				04FB746321A17BEF0031DD07 /* SwiftProgressLoader.swift */,
 				04FB745A21A150360031DD07 /* Extension.swift */,
 			);
 			path = SupportingFiles;
@@ -249,6 +252,7 @@
 				04FB745D21A1512E0031DD07 /* ApiManager.swift in Sources */,
 				04FB745821A14F070031DD07 /* DetailViewController.swift in Sources */,
 				04FB745B21A150360031DD07 /* Extension.swift in Sources */,
+				04FB746421A17BEF0031DD07 /* SwiftProgressLoader.swift in Sources */,
 				04FB746121A16CAD0031DD07 /* ListViewTableViewCell.swift in Sources */,
 				04FB745F21A151840031DD07 /* DataModel.swift in Sources */,
 			);

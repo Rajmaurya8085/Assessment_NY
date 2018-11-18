@@ -16,16 +16,24 @@ class ListViewController: UIViewController {
     var dataModelArrray:[DataModel] = [DataModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDataFromAPi()
+        
         self.title = "NY Times Most Popular"
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if dataModelArrray.count == 0 {
+        getDataFromAPi()
+        }
+    }
     func getDataFromAPi(){
-        
+        SwiftLoader.show(animated: true)
         DispatchQueue.global().async {
+            
             ApiManager.makeApiCall(result: { [weak self] (dataModel) in
                 self?.dataModelArrray = dataModel
+                SwiftLoader.hide()
                 self?.listTableView.reloadData()
             })
         }
@@ -49,6 +57,7 @@ extension ListViewController :UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controlller =  UIStoryboard.loadViewController(storyBoardName:"Main", identifierVC:"DetailViewController", type:DetailViewController.self)
+        controlller.dataModel =  dataModelArrray[indexPath.row]
         self.navigationController?.pushViewController(controlller, animated:true)
     }
 }
