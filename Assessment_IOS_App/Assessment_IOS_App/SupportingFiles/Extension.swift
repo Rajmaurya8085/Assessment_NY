@@ -90,6 +90,7 @@ extension UIView{
 
 extension UIStoryboard{
     
+    /* This is generic method used for get instance of controller from storyboard */ 
     class func loadViewController<T:UIViewController>(storyBoardName:String,identifierVC:String,type:T.Type) -> T
     {
         let storyboard = UIStoryboard(name: storyBoardName, bundle: Bundle.main)
@@ -100,6 +101,7 @@ extension UIStoryboard{
 
 let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
+    /* this method is used to  download image from string url and store on cache */
     func loadImageUsingCache(withUrl urlString : String) {
         let url = URL(string: urlString)
         if url == nil {return}
@@ -111,6 +113,7 @@ extension UIImageView {
             return
         }
         
+        /* adding activicty loader on Image */
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
         addSubview(activityIndicator)
         activityIndicator.startAnimating()
@@ -134,4 +137,7 @@ extension UIImageView {
         }).resume()
     }
 }
+
+
+
 

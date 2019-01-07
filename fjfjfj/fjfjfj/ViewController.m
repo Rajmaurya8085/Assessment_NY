@@ -11,11 +11,13 @@
 @interface ViewController ()
 
 @end
-
 @implementation ViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSString * str = [NSString stringWithFormat:@""];
+   //[str release];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

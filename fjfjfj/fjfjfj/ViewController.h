@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+@property(readwrite, assign,atomic)NSInteger value;
 
 @end
 

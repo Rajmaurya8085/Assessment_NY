@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042834DD21D2979500C7879C /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042834DC21D2979500C7879C /* SwiftyJSON.swift */; };
 		04FB743321A118D30031DD07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FB743221A118D30031DD07 /* AppDelegate.swift */; };
 		04FB743821A118D30031DD07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FB743621A118D30031DD07 /* Main.storyboard */; };
 		04FB743A21A118D40031DD07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04FB743921A118D40031DD07 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		042834DC21D2979500C7879C /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		04FB742F21A118D30031DD07 /* Assessment_IOS_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assessment_IOS_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FB743221A118D30031DD07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04FB743721A118D30031DD07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				04FB745C21A1512E0031DD07 /* ApiManager.swift */,
 				04FB745E21A151840031DD07 /* DataModel.swift */,
+				042834DC21D2979500C7879C /* SwiftyJSON.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				04FB745821A14F070031DD07 /* DetailViewController.swift in Sources */,
 				04FB745B21A150360031DD07 /* Extension.swift in Sources */,
 				04FB746421A17BEF0031DD07 /* SwiftProgressLoader.swift in Sources */,
+				042834DD21D2979500C7879C /* SwiftyJSON.swift in Sources */,
 				04FB746121A16CAD0031DD07 /* ListViewTableViewCell.swift in Sources */,
 				04FB745F21A151840031DD07 /* DataModel.swift in Sources */,
 			);

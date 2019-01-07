@@ -8,10 +8,13 @@
 
 import UIKit
 
+private let detailsControllerTtitle = "Details"
+private let backButtonNam = "Back"
+
 class DetailViewController: UIViewController {
     var dataModel :DataModel!
     
-    @IBOutlet weak var captionLbl: UILabel!
+    @IBOutlet weak  var captionLbl: UILabel!
     @IBOutlet weak var desLbl: UILabel!
     @IBOutlet weak var detailsImageView: UIImageView!
     @IBOutlet weak var publishDateLbl: UILabel!
@@ -20,28 +23,26 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     
+    
+    //MARK: View controller life cycle delegate method
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Detail"
-        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.done, target: nil, action: nil);
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-  setData()
+        initialSetup()
+        setData()
     }
+    
+    // Mark: Custom Method
+    func initialSetup(){
+        self.title = detailsControllerTtitle
+        let backButton = UIBarButtonItem(title: backButtonNam, style: UIBarButtonItem.Style.done, target: nil, action: nil);
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
     func setData(){
         titleLbl.text = dataModel.title
         sourceLbl.text = dataModel.source
         publishDateLbl.text  = dataModel.published_date
-        publishLbl.text = dataModel.type?.rawValue
-        captionLbl.text  = dataModel.media.first?.caption
-        if let imegeUrl = dataModel.media.first?.formatedMedia["Standard Thumbnail"]{
-            userImageView.loadImageUsingCache(withUrl: imegeUrl.usrString ?? "")
-        }
-        if let imegeUrl = dataModel.media.first?.formatedMedia["superJumbo"]{
-            detailsImageView.loadImageUsingCache(withUrl: imegeUrl.usrString ?? "")
-        }
     }
-
-
-    
     
 }
+

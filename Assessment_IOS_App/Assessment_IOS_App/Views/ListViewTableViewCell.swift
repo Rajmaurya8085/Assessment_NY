@@ -30,9 +30,28 @@ class ListViewTableViewCell: UITableViewCell {
     titleLbl.text = dataModel.title
     sourceLbl.text = dataModel.source
     dateLbl.text  = dataModel.published_date
-    typeLbl.text = dataModel.type?.rawValue
-        if let imegeUrl = dataModel.media.first?.formatedMedia["Standard Thumbnail"]{
-            listImageView.loadImageUsingCache(withUrl: imegeUrl.usrString ?? "")
-        }
+    //typeLbl.text = dataModel.type?.rawValue
+      //  if let imegeUrl = dataModel.media.first?.formatedMedia["Standard Thumbnail"]{
+           // listImageView.loadImageUsingCache(withUrl: imegeUrl.usrString ?? "")
+       // }
+        let kkk = acvx()
+        kkk.a = 89
     }
+    
+    
 }
+
+
+
+class acvx {
+    var a  = 5
+    let b  =  9
+}
+
+class vfmfm{
+    let bn = 90
+    let asdd:acvx = acvx()
+}
+
+
+

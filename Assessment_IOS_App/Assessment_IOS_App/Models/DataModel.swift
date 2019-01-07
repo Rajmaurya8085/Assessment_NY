@@ -1,14 +1,6 @@
-//
-//  DataModel.swift
-//  Assessment_IOS_App
-//
-//  Created by Raj on 18/11/18.
-//  Copyright © 2018 Raj. All rights reserved.
-//
-
 import Foundation
 
-enum Type:String{
+enum contentType:String{
     case Interactive
     case Article
 }
@@ -27,28 +19,44 @@ func getModelsDataArray(dataDict:[[String :AnyObject]])->[DataModel]{
     var dataArray:[DataModel] = [DataModel]()
     
     for tyData in dataDict {
-      dataArray.append(DataModel.init(dataDict: tyData))
+        dataArray.append(DataModel.init(dataDict: tyData))
     }
     return dataArray
 }
 
-class DataModel:NSObject{
-    var usrString:String?
-    var adx_keywords:String?
-    var section:String?
-    var type:Type?
-    var title:String?
-    var abstract:String?
-    var published_date:String?
-    var source:String?
-    var id:Double?
-    var asset_id:Double?
-    var media:[Media] = [Media]()
+protocol rootDataModelPop {
+    
+    var usrString:String?{get}
+     var adx_keywords:String?{get}
+     var section:String?{get}
+     var type:contentType?{get}
+     var title:String?{get}
+     var abstract:String?{get}
+     var published_date:String?{get}
+     var source:String?{get}
+     var id:Double?{get}
+     var asset_id:Double?{get}
+     var media:[Media]{get}
+    
+}
+struct DataModel:rootDataModelPop{
+    private(set) var usrString:String?
+    private(set) var adx_keywords:String?
+    private(set) var section:String?
+    private(set) var type:contentType?
+    private(set) var title:String?
+    private(set) var abstract:String?
+    private(set) var published_date:String?
+    private(set) var source:String?
+    private(set) var id:Double?
+    private(set) var asset_id:Double?
+    private(set) var media:[Media] = [Media]()
+    
     init(dataDict:[String:Any]) {
         usrString = dataDict["url"] as? String ?? ""
         adx_keywords = dataDict["adx_keywords"] as? String ?? ""
         if let typeData = dataDict["type"] as? String {
-            type = Type(rawValue: typeData)
+            type = contentType(rawValue: typeData)
         }
         section = dataDict["section"] as? String
         title = dataDict["title"] as? String ?? ""
@@ -66,11 +74,18 @@ class DataModel:NSObject{
     }
 }
 
-class Media:NSObject{
-   
-    var mediaType:MediaType?
-    var caption:String?
-    var formatedMedia:[String:MediaMetaData]  = [:]
+protocol MediaPop {
+    var mediaType:MediaType?{get}
+    var caption:String?{get}
+    var formatedMedia:[String:MediaMetaData] {get}
+
+}
+
+struct Media:MediaPop{
+    
+    private(set) var mediaType:MediaType?
+    private(set) var caption:String?
+    private(set) var formatedMedia:[String:MediaMetaData]  = [:]
     init(dictData:[String:AnyObject]) {
         if let type = dictData["type"] as? String{
             mediaType = MediaType(rawValue: type)
@@ -80,21 +95,32 @@ class Media:NSObject{
             for mediaMetaData in metadataArray {
                 let formated  = mediaMetaData["format"] as? String ?? ""
                 formatedMedia[formated] = MediaMetaData(dataDict: mediaMetaData)
-        }
+            }
         }
     }
 }
 
-class MediaMetaData:NSObject{
-    var usrString:String?
-    var formate:String?
-    var height:Float?
-    var width:Float?
+protocol MetaData:Codable {
+    var url:String?{get}
+    var formate:String?{get}
+    var height:Float?{get}
+    var width:Float?{get}
+}
+
+struct MediaMetaData:MetaData{
+    
+    private(set) var url: String?
+    private(set) var formate: String?
+    private(set) var height:Float?
+    private(set) var width:Float?
     init(dataDict:[String:Any]) {
-        usrString = dataDict["url"] as? String ?? ""
+        url = dataDict["url"] as? String ?? ""
         formate = dataDict["format"] as? String ?? ""
         height = dataDict["height"] as? Float ?? 0.0
         width = dataDict["width"] as? Float ?? 0.0
-
+        
     }
 }
+
+
+

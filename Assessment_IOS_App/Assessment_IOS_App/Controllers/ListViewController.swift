@@ -8,17 +8,22 @@
 
 import UIKit
 
+private let cellListIdentifier = "ListViewTableViewCell"
+private let cellDetailIdentifier = "DetailViewController"
+private let mainStroyBoardName = "Main"
+private let AppTitle = "NY Times Most Popular"
+
 class ListViewController: UIViewController {
   
     
     
     @IBOutlet weak var listTableView: UITableView!
     var dataModelArrray:[DataModel] = [DataModel]()
+    
+    // MARK: View controller Life cycle method
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "NY Times Most Popular"
-        // Do any additional setup after loading the view.
+        self.title = AppTitle
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,10 +32,12 @@ class ListViewController: UIViewController {
         getDataFromAPi()
         }
     }
+    
+    // MARK: Method callting Api
     func getDataFromAPi(){
+        /* adding Loader during Api Call */
         SwiftLoader.show(animated: true)
         DispatchQueue.global().async {
-            
             ApiManager.makeApiCall(result: { [weak self] (dataModel) in
                 self?.dataModelArrray = dataModel
                 SwiftLoader.hide()
@@ -47,16 +54,15 @@ extension ListViewController :UITableViewDelegate, UITableViewDataSource{
         
         return dataModelArrray.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier:"ListViewTableViewCell", for:indexPath) as? ListViewTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier:cellListIdentifier, for:indexPath) as? ListViewTableViewCell
         cell?.setDataFromModels(dataModel: dataModelArrray[indexPath.row])
         cell?.selectionStyle = .none
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controlller =  UIStoryboard.loadViewController(storyBoardName:"Main", identifierVC:"DetailViewController", type:DetailViewController.self)
+        let controlller =  UIStoryboard.loadViewController(storyBoardName:mainStroyBoardName, identifierVC:cellDetailIdentifier, type:DetailViewController.self)
         controlller.dataModel =  dataModelArrray[indexPath.row]
         self.navigationController?.pushViewController(controlller, animated:true)
     }
